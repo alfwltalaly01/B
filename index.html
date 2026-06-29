@@ -757,6 +757,34 @@
       window.open(`https://wa.me/966599178496?text=${encodeURIComponent(message)}`, '_blank');
     });
   }
+    // الجرس والماسة
+  const notiBell = document.getElementById('notiBell');
+  const notiContent = document.getElementById('notiContent');
+  const loyaltyBtn = document.getElementById('loyaltyBtn');
+  const loyaltyForm = document.getElementById('loyaltyForm');
+
+  if (notiBell) {
+    notiBell.addEventListener('click', (e) => {
+      e.stopPropagation();
+      notiContent.classList.toggle('show');
+      if (loyaltyForm) loyaltyForm.classList.remove('show');
+    });
+  }
+
+  if (loyaltyBtn) {
+    loyaltyBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      loyaltyForm.classList.toggle('show');
+      if (notiContent) notiContent.classList.remove('show');
+    });
+  }
+
+  document.addEventListener('click', () => {
+    if (notiContent) notiContent.classList.remove('show');
+    if (loyaltyForm) loyaltyForm.classList.remove('show');
+  });
+
+</script>
 
 
 <!-- Firebase Loyalty -->
