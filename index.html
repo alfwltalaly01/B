@@ -34,8 +34,18 @@
     <div style="display: flex; align-items: center; gap: 15px; position: relative;">
       
       <!-- أولاً: أيقونة الماسة على اليسار -->
-      <a href="#" class="nav-icon" style="font-size: 1.2rem; text-decoration: none;">💎</a>
-      
+    <!-- بدل السطر 38 -->
+<a href="#" class="nav-icon" id="liqaaBtn" style="font-size:1.2rem; text-decoration:none; position:relative;">💎
+  <!-- القائمة المنسدلة -->
+  <div class="liqaa-dropdown" id="liqaaDropdown">
+    <div class="liqaa-drop-header">برنامج لقاء للنقاط</div>
+    <button class="liqaa-drop-item" onclick="openPanel('register')">🔗 ربط رقم العميل</button>
+    <button class="liqaa-drop-item" onclick="openPanel('collect')">⭐ تحصيل النقاط</button>
+    <button class="liqaa-drop-item" onclick="openPanel('redeem')">🎁 استبدال النقاط</button>
+    <div class="liqaa-drop-divider"></div>
+    <button class="liqaa-drop-item liqaa-admin" onclick="openPanel('admin')">⚙ إدارة</button>
+  </div>
+</a>
       <!-- ثانياً: زر الجرس وقائمة الإشعارات المنسدلة (محفوظة بالكامل بنفس الكود الخاص بك) -->
       <div style="position: relative; display: inline-block;">
         <button class="bell-button" id="bellButton" style="background: none; border: none; cursor: pointer; font-size: 1.2rem; padding: 0; position: relative; color: white;">
@@ -863,6 +873,16 @@
       msg.textContent = '❌ حدث خطأ، حاول مرة أخرى';
     }
   });
-</script>     
+</script> 
+   <!-- نافذة لقاء -->
+<div class="liqaa-overlay" id="liqaa-overlay" onclick="if(event.target===this)closePanel()">
+  <div class="liqaa-panel">
+    <div class="liqaa-panel-head">
+      <span class="liqaa-panel-title" id="lq-panel-title"></span>
+      <button class="liqaa-panel-close" onclick="closePanel()">✕</button>
+    </div>
+    <div class="liqaa-panel-body" id="lq-panel-body"></div>
+  </div>
+</div>   
 </body>
 </html>
