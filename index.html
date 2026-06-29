@@ -52,6 +52,24 @@
   </div>
 </div>
 </div>
+  <div class="notification-container" style="position: relative; z-index: 99999; pointer-events: auto; margin-right: 8px;">
+  <button class="bell-icon-btn" id="loyaltyBtn" aria-label="نقاط الولاء" style="position: relative; z-index: 100000; pointer-events: auto !important;">
+    💎
+  </button>
+  <div class="bell-dropdown" id="loyaltyForm">
+    <div class="bell-dropdown-header">
+      <span>💎 برنامج نقاط الولاء</span>
+    </div>
+    <div class="bell-dropdown-body" style="padding: 15px;">
+      <p style="font-size: 13px; color: #666; text-align: right; margin-bottom: 10px;">سجل برقم جوالك واحصل على 50 نقطة ترحيبية فوراً!</p>
+      <input type="tel" id="customerPhone" placeholder="05xxxxxxxx" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 8px; text-align: center; margin-bottom: 10px; box-sizing: border-box; font-size: 14px;">
+      <button id="registerBtn" style="width: 100%; background: linear-gradient(135deg, #d4af37, #f0d060); color: #000; border: none; padding: 10px; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 14px;">
+        تسجيل والحصول على النقاط 💎
+      </button>
+      <div id="loyaltyMsg" style="display:none; margin-top: 10px; text-align: center; color: green; font-weight: bold;"></div>
+    </div>
+  </div>
+</div>
     <ul class="nav-links" id="navLinks">
       <li><a href="#home">الرئيسية</a></li>
       <li><a href="#products">منتجاتنا</a></li>
