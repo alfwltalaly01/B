@@ -814,6 +814,61 @@
             alert("حدث خطأ، يرجى المحاولة مرة أخرى.");
         }
     });
-</script>  
+</script> 
+   <!-- Firebase -->
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+  import { getFirestore, doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyBvsVK74PhCAXNqeGMFTLE",
+    authDomain: "highvolt.firebaseapp.com",
+    databaseURL: "https://highvolt-default-rtdb.firebaseio.com",
+    projectId: "highvolt",
+    storageBucket: "highvolt.appspot.com",
+    messagingSenderId: "1088974560117",
+    appId: "1:1088974560117:web:8f05cc",
+    measurementId: "G-L0T7G44S9H"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  document.getElementById('registerBtn').addEventListener('click', async () => {
+    const phone = document.getElementById('customerPhone').value.trim();
+    const msg = document.getElementById('loyaltyMsg');
+
+    if (!phone || phone.length < 10) {
+      msg.style.display = 'block';
+      msg.style.color = 'red';
+      msg.textContent = '❌ أدخل رقم جوال صحيح';
+      return;
+    }
+
+    try {
+      const ref = doc(db, 'loyalty_customers', phone);
+      const existing = await getDoc(ref);
+
+      if (existing.exists()) {
+        msg.style.display = 'block';
+        msg.style.color = 'orange';
+        msg.textContent = '⚠️ هذا الرقم مسجل مسبقاً - نقاطك: ' + existing.data().points;
+      } else {
+        await setDoc(ref, {
+          phone: phone,
+          points: 50,
+          registeredAt: new Date().toISOString()
+        });
+        msg.style.display = 'block';
+        msg.style.color = 'green';
+        msg.textContent = '✅ تم التسجيل! حصلت على 50 نقطة ترحيبية 🎉';
+      }
+    } catch (e) {
+      msg.style.display = 'block';
+      msg.style.color = 'red';
+      msg.textContent = '❌ حدث خطأ، حاول مرة أخرى';
+    }
+  });
+</script>     
 </body>
 </html>
