@@ -653,3 +653,14 @@ z-index: 999999;
   width: 36px !important;
   height: 36px !important;
 }
+@media (max-width: 768px) {
+  .bell-dropdown {
+    position: fixed;
+    right: 5%;
+    left: 5%;
+    top: 70px;
+    width: 90%;
+    max-width: 90%;
+    min-width: unset;
+  }
+}
