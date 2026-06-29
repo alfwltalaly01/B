@@ -763,32 +763,7 @@
   const loyaltyBtn = document.getElementById('loyaltyBtn');
   const loyaltyForm = document.getElementById('loyaltyForm');
 
-  if (notiBell) {
-    notiBell.addEventListener('click', (e) => {
-      e.stopPropagation();
-      notiContent.classList.toggle('show');
-      if (loyaltyForm) loyaltyForm.classList.remove('show');
-    });
-  }
 
-  if (loyaltyBtn) {
-    loyaltyBtn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      loyaltyForm.classList.toggle('show');
-      if (notiContent) notiContent.classList.remove('show');
-    });
-  }
-
-  document.addEventListener('click', () => {
-    if (notiContent) notiContent.classList.remove('show');
-    if (loyaltyForm) loyaltyForm.classList.remove('show');
-  });
-
-</script>
-
-
-<!-- Firebase Loyalty -->
-<script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
   import { getFirestore, doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore.js";
 
