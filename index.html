@@ -11,51 +11,63 @@
  </head>
   <body>
 <!-- NAVBAR -->
-    <nav class="navbar" id="navbar" style="direction: rtl; background-color: #0b0b0b; padding: 12px 16px; position: relative;">
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar" style="direction: rtl; background-color: #0b0b0b; padding: 10px 16px;">
   <div class="nav-inner" style="display: flex !important; justify-content: space-between !important; align-items: center; width: 100%;">
     
-    <div style="display: flex; align-items: center; gap: 16px;">
-      <button class="hamburger" id="hamburger" style="background: none; border: none; cursor: pointer; display: flex; flex-direction: column; gap: 4px; padding: 0;">
-        <span style="display: block; width: 22px; height: 2px; background-color: #d4af37;"></span>
-        <span style="display: block; width: 22px; height: 2px; background-color: #d4af37;"></span>
-        <span style="display: block; width: 22px; height: 2px; background-color: #d4af37;"></span>
+    <!-- جهة اليمين: الخطوط الثلاثة (أقصى اليمين) ثم يليه اللوجو والاسم -->
+    <div style="display: flex; align-items: center;">
+      <!-- زر الخطوط الثلاثة (الهمبرغر) بنفس كلاساتك القديمة تماماً ليعمل الجافاسكربت -->
+      <button class="hamburger" id="hamburger">
+        <span></span><span></span><span></span><span></span>
       </button>
       
+      <!-- اللوجو واسم المتجر متتاليين -->
+      <div class="logo" style="margin-right: 16px; margin-left: 12px;"></div>
       <div class="logo-text-wrapper" style="display: flex; flex-direction: column; text-align: right;">
-        <span class="logo-main" style="white-space: nowrap; font-size: 1rem; font-weight: bold; color: #d4af37;">الفولت العالي</span>
-        <span class="logo-sub" style="white-space: nowrap; font-size: 0.65rem; color: #a0a0a0; margin-top: 2px;">كهرباء . سباكة . صيانة منزلية</span>
+        <span class="logo-main" style="white-space: nowrap; font-size: 0.95rem;">الفولت العالي</span>
+        <span class="logo-sub" style="white-space: nowrap; font-size: 0.62rem;">كهرباء . سباكة . صيانة منزلية</span>
       </div>
     </div>
 
-    <div style="display: flex; align-items: center; gap: 16px; position: relative;">
+    <!-- جهة اليسار: الأيقونات (الماسة والجرس مع قائمته المنسدلة) -->
+    <div style="display: flex; align-items: center; gap: 15px; position: relative;">
+      
+      <!-- أولاً: أيقونة الماسة على اليسار -->
       <a href="#" class="nav-icon" style="font-size: 1.2rem; text-decoration: none;">💎</a>
       
+      <!-- ثانياً: زر الجرس وقائمة الإشعارات المنسدلة (محفوظة بالكامل بنفس الكود الخاص بك) -->
       <div style="position: relative; display: inline-block;">
-        <button id="bellButton" style="background: none; border: none; cursor: pointer; font-size: 1.2rem; padding: 0; position: relative;">
-          🔔<span class="bell-badge" style="position: absolute; top: -5px; right: -5px; background: red; color: white; font-size: 0.6rem; padding: 2px 5px; border-radius: 50%;">3</span>
+        <button class="bell-button" id="bellButton" style="background: none; border: none; cursor: pointer; font-size: 1.2rem; padding: 0; position: relative; color: white;">
+          🔔<span class="bell-badge">3</span>
         </button>
         
-        <div class="bell-dropdown" id="notiContent" style="display: none; position: absolute; left: 0; top: 30px; background: #111; border: 1px solid #333; width: 280px; border-radius: 8px; z-index: 1000; padding: 10px; box-shadow: 0px 4px 10px rgba(0,0,0,0.5); text-align: right;">
-          <div class="bell-dropdown-header" style="border-bottom: 1px solid #222; padding-bottom: 5px; margin-bottom: 8px;">
-            <span style="color: #d4af37; font-weight: bold;">🔔 التنبيهات الأخيرة</span>
+        <!-- قائمة التنبيهات المنسدلة كما هي تماماً من كودك الأصلي -->
+        <div class="bell-dropdown" id="notiContent">
+          <div class="bell-dropdown-header">
+            <span>🔔 التنبيهات الأخيرة</span>
           </div>
-          <div class="bell-dropdown-body" style="display: flex; flex-direction: column; gap: 10px; font-size: 0.8rem; color: #fff;">
-            <div class="bell-item unread" style="background: #222; padding: 6px; border-radius: 4px;">
+          <div class="bell-dropdown-body">
+            <div class="bell-item unread">
               <strong>⚡ عرض الفولت العالي:</strong> خدمات الفحص الشامل للكهرباء والسباكة بمناسبة الصيف
             </div>
-            <div class="bell-item" style="padding: 6px;">
+            <div class="bell-item">
               <strong>🛒 عميلنا العزيز:</strong> تتشرف بزيارتك لنا في موقعنا جدة حي النسيم وما راح نقصر معك
             </div>
-            <div class="bell-item" style="padding: 6px;">
+            <div class="bell-item">
               <strong>📅 حجز سريع:</strong> الحجز المباشر لمواعيد الصيانة أو الطوارئ وتأكيده عبر الواتساب فوراً
             </div>
-            <div class="bell-item" style="padding: 6px;">
+            <div class="bell-item">
               <strong>💡 نصيحة السلامة:</strong> افحص لوحة القواطع الكهربائية دورياً لتجنب الأحمال الزائدة.
             </div>
           </div>
         </div>
-      </div> </div>
+      </div> <!-- نهاية حاوية الجرس -->
 
+    </div>
+
+  </div>
+</nav>
   </div>
 </nav>
     </div>
