@@ -15,6 +15,8 @@
 <nav class="navbar" id="navbar">
 <div class="nav-inner" style="display: flex !important; justify-content: space-between !important; align-items: center !important;">
   <div style="display: flex; align-items: center; justify-content: space-between; width: 100%; padding: 10px;">
+    
+    <!-- يسار: همبرغر + لوجو -->
     <div style="display: flex; align-items: center;">
       <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
       <div class="logo" style="margin-right: 16px;">
@@ -24,50 +26,61 @@
         </div>
       </div>
     </div>
-    <div class="notification-container" style="position: relative; z-index: 99999; pointer-events: auto;">
-      <button class="bell-icon-btn" id="notiBell" aria-label="الإشعارات" style="position: relative; z-index: 100000; pointer-events: auto !important;">
-        🔔
-        <span class="bell-badge">3</span>
-      </button>
-      <div class="bell-dropdown" id="notiContent">
-        <div class="bell-dropdown-header">
-          <span>🔔 التنبيهات الأخيرة</span>
-        </div>
-        <div class="bell-dropdown-body">
-          <div class="bell-item unread">
-            <strong>⚡ عرض الفولت العالي:</strong> خصم 15% على خدمات الفحص الشامل للكهرباء والسباكة بمناسبة الصيف!
+
+    <!-- يمين: النقاط + الجرس معاً -->
+    <div style="display: flex; align-items: center; gap: 8px;">
+
+      <!-- 💎 النقاط أولاً (على أقصى اليمين) -->
+      <div class="notification-container" style="position: relative; z-index: 99999; pointer-events: auto;">
+        <button class="bell-icon-btn" id="loyaltyBtn" aria-label="نقاط الولاء" style="position: relative; z-index: 100000; pointer-events: auto !important;">
+          💎
+        </button>
+        <div class="bell-dropdown" id="loyaltyForm">
+          <div class="bell-dropdown-header">
+            <span>💎 برنامج نقاط الولاء</span>
           </div>
-          <div class="bell-item">
-  <strong>🛒 عميلنا العزيز:</strong>  اطلب ما تحتاجه من أدوات الكهرباء اوالسباكة في خانة طلب عرض السعر وما راح نقصر معك في الخصم كما نتشرف بزيارتك لنا في موقعنا جدة حي النسيم وماراح نقصر معك
-</div>
-          <div class="bell-item">
-            <strong>📅 حجز سريع:</strong> تم تفعيل الحجز المباشر لمواعيد الصيانة او الطوارى وتأكيده عبر الواتساب فوراً.
-          </div>
-          <div class="bell-item">
-            <strong>💡 نصيحة السلامة:</strong> افحص لوحة القواطع الكهربائية دورياً لتجنب الأحمال الزائدة.
+          <div class="bell-dropdown-body" style="padding: 15px;">
+            <p style="font-size: 13px; color: #666; text-align: right; margin-bottom: 10px;">سجل برقم جوالك واحصل على 50 نقطة ترحيبية فوراً!</p>
+            <input type="tel" id="customerPhone" placeholder="05xxxxxxxx" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 8px; text-align: center; margin-bottom: 10px; box-sizing: border-box; font-size: 14px;">
+            <button id="registerBtn" style="width: 100%; background: linear-gradient(135deg, #d4af37, #f0d060); color: #000; border: none; padding: 10px; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 14px;">
+              تسجيل والحصول على النقاط 💎
+            </button>
+            <div id="loyaltyMsg" style="display:none; margin-top: 10px; text-align: center; color: green; font-weight: bold;"></div>
           </div>
         </div>
       </div>
+
+      <!-- 🔔 الجرس ثانياً (بجانب النقاط) -->
+      <div class="notification-container" style="position: relative; z-index: 99999; pointer-events: auto;">
+        <button class="bell-icon-btn" id="notiBell" aria-label="الإشعارات" style="position: relative; z-index: 100000; pointer-events: auto !important;">
+          🔔
+          <span class="bell-badge">3</span>
+        </button>
+        <div class="bell-dropdown" id="notiContent">
+          <div class="bell-dropdown-header">
+            <span>🔔 التنبيهات الأخيرة</span>
+          </div>
+          <div class="bell-dropdown-body">
+            <div class="bell-item unread">
+              <strong>⚡ عرض الفولت العالي:</strong> خصم 15% على خدمات الفحص الشامل للكهرباء والسباكة بمناسبة الصيف!
+            </div>
+            <div class="bell-item">
+              <strong>🛒 عميلنا العزيز:</strong> اطلب ما تحتاجه من أدوات الكهرباء أو السباكة في خانة طلب عرض السعر وما راح نقصر معك في الخصم كما نتشرف بزيارتك لنا في موقعنا جدة حي النسيم وما راح نقصر معك
+            </div>
+            <div class="bell-item">
+              <strong>📅 حجز سريع:</strong> تم تفعيل الحجز المباشر لمواعيد الصيانة أو الطوارئ وتأكيده عبر الواتساب فوراً.
+            </div>
+            <div class="bell-item">
+              <strong>💡 نصيحة السلامة:</strong> افحص لوحة القواطع الكهربائية دورياً لتجنب الأحمال الزائدة.
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </div>
-<div class="notification-container" style="position: relative; z-index: 99999; pointer-events: auto; margin-right: 8px;">
-  <button class="bell-icon-btn" id="loyaltyBtn" aria-label="نقاط الولاء" style="position: relative; z-index: 100000; pointer-events: auto !important;">
-    💎
-  </button>
-  <div class="bell-dropdown" id="loyaltyForm">
-    <div class="bell-dropdown-header">
-      <span>💎 برنامج نقاط الولاء</span>
-    </div>
-    <div class="bell-dropdown-body" style="padding: 15px;">
-      <p style="font-size: 13px; color: #666; text-align: right; margin-bottom: 10px;">سجل برقم جوالك واحصل على 50 نقطة ترحيبية فوراً!</p>
-      <input type="tel" id="customerPhone" placeholder="05xxxxxxxx" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 8px; text-align: center; margin-bottom: 10px; box-sizing: border-box; font-size: 14px;">
-      <button id="registerBtn" style="width: 100%; background: linear-gradient(135deg, #d4af37, #f0d060); color: #000; border: none; padding: 10px; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 14px;">
-        تسجيل والحصول على النقاط 💎
-      </button>
-      <div id="loyaltyMsg" style="display:none; margin-top: 10px; text-align: center; color: green; font-weight: bold;"></div>
-    </div>
-  </div>
+</nav>
 </div>
   </div>
 </div>
