@@ -122,3 +122,20 @@ if (notiBell && notiContent) {
     }
   });
 }
+// Loyalty Diamond
+const loyaltyBtn = document.getElementById('loyaltyBtn');
+const loyaltyForm = document.getElementById('loyaltyForm');
+
+if (loyaltyBtn && loyaltyForm) {
+  loyaltyBtn.addEventListener('click', function(e) {
+    e.stopPropagation();
+    loyaltyForm.classList.toggle('show');
+    if (notiContent) notiContent.classList.remove('show');
+  });
+
+  document.addEventListener('click', function(e) {
+    if (!loyaltyBtn.contains(e.target) && !loyaltyForm.contains(e.target)) {
+      loyaltyForm.classList.remove('show');
+    }
+  });
+}
