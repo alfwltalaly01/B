@@ -648,3 +648,8 @@ z-index: 999999;
   color: #000000 !important;
   -webkit-text-fill-color: #000000 !important;
 }
+.bell-icon-btn {
+  font-size: 1.2rem !important;
+  width: 36px !important;
+  height: 36px !important;
+}
