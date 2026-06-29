@@ -644,3 +644,7 @@ z-index: 999999;
     max-width: 90%;
   }
 }
+#customerPhone {
+  color: #000000 !important;
+  -webkit-text-fill-color: #000000 !important;
+}
