@@ -760,75 +760,19 @@
   }
 
 
-<script src="script.js"></script>
-      <section id="register-section">
-    <h3>تسجيل عميل جديد - HighVoltage</h3>
-    <form id="customerForm">
-        <input type="text" id="custName" placeholder="اسم العميل" required>
-        <input type="tel" id="custPhone" placeholder="رقم الجوال" required>
-        <button type="submit">تسجيل وحفظ النقاط</button>
-    </form>
-</section>
-
+<!-- Firebase Loyalty -->
 <script type="module">
-    // 1. استيراد المكتبات الضرورية
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
-    import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore.js";
-    import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-analytics.js";
-
-    // 2. إعدادات المشروع (التي نسختها سابقاً)
-    const firebaseConfig = {
-        apiKey: "AIzaSyBvsVK74PhCAXNqeGMFTLBfi44CcGSgBDI",
-        authDomain: "highvolt.firebaseapp.com",
-        projectId: "highvolt",
-        storageBucket: "highvolt.firebasestorage.app",
-        messagingSenderId: "1088974560117",
-        appId: "1:1088974560117:web:0e065029625d6ad386913c",
-        measurementId: "G-3H2LKFH6VE"
-    };
-
-    // 3. تهيئة Firebase
-    const app = initializeApp(firebaseConfig);
-    const db = getFirestore(app);
-    const analytics = getAnalytics(app);
-
-    // 4. دالة حفظ البيانات عند الضغط على زر التسجيل
-    document.getElementById('customerForm').addEventListener('submit', async (e) => {
-        e.preventDefault();
-        
-        const name = document.getElementById('custName').value;
-        const phone = document.getElementById('custPhone').value;
-
-        try {
-            // حفظ العميل في Firestore تحت مجموعة "Customers"
-            await setDoc(doc(db, "Customers", phone), {
-                name: name,
-                phone: phone,
-                totalPoints: 10, // هدية ترحيبية
-                createdAt: new Date()
-            });
-            alert("تم تسجيلك في HighVoltage بنجاح!");
-            document.getElementById('customerForm').reset();
-        } catch (error) {
-            console.error("خطأ في التسجيل: ", error);
-            alert("حدث خطأ، يرجى المحاولة مرة أخرى.");
-        }
-    });
-</script> 
-   <!-- Firebase -->
-<script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-  import { getFirestore, doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
+  import { getFirestore, doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore.js";
 
   const firebaseConfig = {
-    apiKey: "AIzaSyBvsVK74PhCAXNqeGMFTLE",
+    apiKey: "AIzaSyBvsVK74PhCAXNqeGMFTLBfi44CcGSgBDI",
     authDomain: "highvolt.firebaseapp.com",
-    databaseURL: "https://highvolt-default-rtdb.firebaseio.com",
     projectId: "highvolt",
-    storageBucket: "highvolt.appspot.com",
+    storageBucket: "highvolt.firebasestorage.app",
     messagingSenderId: "1088974560117",
-    appId: "1:1088974560117:web:8f05cc",
-    measurementId: "G-L0T7G44S9H"
+    appId: "1:1088974560117:web:0e065029625d6ad386913c",
+    measurementId: "G-3H2LKFH6VE"
   };
 
   const app = initializeApp(firebaseConfig);
@@ -869,6 +813,7 @@
       msg.textContent = '❌ حدث خطأ، حاول مرة أخرى';
     }
   });
+</script>
 </script>     
 </body>
 </html>
