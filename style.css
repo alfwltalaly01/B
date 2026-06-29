@@ -664,3 +664,12 @@ z-index: 999999;
     min-width: unset;
   }
 }
+@media (max-width: 768px) {
+  .nav-inner {
+    padding: 0 !important;
+  }
+  .navbar .container,
+  .navbar > div {
+    padding: 0 8px !important;
+  }
+}
